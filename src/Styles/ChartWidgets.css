@@ -1,0 +1,46 @@
+/* src/components/ChartWidgets.css */
+
+.info-card {
+    border-radius: 12px;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card-body {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+}
+
+.info-card-icon {
+    font-size: 32px;
+}
+
+.info-card-title {
+    margin: 0;
+    font-size: 14px;
+}
+
+.info-card-value {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.chart-widget {
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    padding: 16px;
+}
+
+.chart-title {
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 600;
+}

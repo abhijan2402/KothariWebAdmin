@@ -1,0 +1,62 @@
+:root {
+  --bg-color: #ffffff;
+  --sidebarbg-color: #F0F8FF;
+  /* Subtle light gray background */
+  --text-color: #1e293b;
+  /* Deep slate for clean readability */
+  --primary-color: #2774AE;
+  /* Rich Blue (Tailwind blue-600) */
+  --secondary-color: #9EB9D4;
+  /* Muted soft gray-blue */
+  --accent-color: #10b981;
+  /* Emerald green for highlights/success */
+  --danger-color: #ef4444;
+  /* Red-500 for alerts/errors */
+  --warning-color: #f59e0b;
+  /* Amber-500 for warnings */
+  --info-color: #3b82f6;
+  /* Blue-500 for information */
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --sidebarbg-color: #0f172a;
+  /* Navy dark (Tailwind slate-900) */
+  --text-color: #f8fafc;
+  /* Near-white text */
+  --primary-color: #3b82f6;
+  /* Brighter blue (Blue-500) */
+  --secondary-color: #1e293b;
+  /* Darker slate for card surfaces */
+  --accent-color: #34d399;
+  /* Lighter green for highlights */
+  --danger-color: #f87171;
+  /* Lighter red for dark bg */
+  --warning-color: #fbbf24;
+  /* Gold-ish amber for warnings */
+  --info-color: #60a5fa;
+  /* Light blue for info */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  overflow-x: hidden;
+}
+
+.card,
+.sidebar {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.main-outlet {
+  margin: 70px 20px 20px 20px;
+  padding: 0 20px;
+}
+
+.ProseMirror {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}

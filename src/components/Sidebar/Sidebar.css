@@ -1,0 +1,91 @@
+.sidebar {
+    width: 240px;
+    background-color: var(--sidebarbg-color);
+    height: 100vh;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+    border-right: 1px solid #ddd;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.sidebar.collapsed {
+    width: 70px;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    cursor: pointer;
+    font-size: 22px;
+    color: var(--text-color, #333);
+}
+
+nav {
+    padding: 0 10px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+    font-weight: 600;
+    padding: 12px 14px;
+    color: var(--text-color, #333);
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+
+
+.submenu-item {
+    margin-top: 4px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    color: var(--text-color, #333);
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+
+.menu-item:hover,
+.submenu-item:hover {
+    background-color: var(--secondary-color, #f0f0f0);
+}
+
+
+
+.menu-item.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.submenu-item.active {
+    color: var(--primary-color);
+}
+
+.submenu-item {
+    padding-left: 36px;
+    font-size: 14px;
+}
+
+.icon {
+    font-size: 18px;
+}
+
+.dropdown-icon {
+    margin-left: auto;
+    font-size: 16px;
+}
