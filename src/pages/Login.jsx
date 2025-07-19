@@ -15,6 +15,7 @@ const LoginSchema = Yup.object().shape({
 });
 
 export default function Login() {
+  console.log("HIOIIIII");
   const navigate = useNavigate();
 
   return (
