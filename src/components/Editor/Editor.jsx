@@ -10,12 +10,134 @@ const { TabPane } = Tabs;
 
 const DEFAULT_CONTENT = {
   "privacy-policy": `
-    <h2>Privacy Policy</h2>
-    <p>This is our privacy policy. Please update accordingly.</p>
+          <div className="max-w-4xl mx-auto space-y-10 text-gray-300">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-yellow-300 text-xl font-semibold mb-2">
+            1. Information We Collect
+          </h2>
+          <p>
+            We may collect user names, email addresses, contact numbers, and
+            browsing behavior. This data is stored securely in our Firestore
+            database.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-yellow-300 text-xl font-semibold mb-2">
+            2. How We Use Data
+          </h2>
+          <p>
+            Your data is used solely for enhancing user experience, customizing
+            product views, and managing orders or enquiries. We never sell or
+            share your data with third parties.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-yellow-300 text-xl font-semibold mb-2">
+            3. Data Control & Security
+          </h2>
+          <p>
+            All dynamic content including categories, subcategories, product
+            details, and user data is stored and served via Firestore with
+            security rules applied to prevent unauthorized access.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-yellow-300 text-xl font-semibold mb-2">
+            4. User Rights
+          </h2>
+          <p>
+            You can contact us anytime to view, edit, or delete your personal
+            data from our system.
+          </p>
+        </motion.div>
+      </div>
   `,
   "terms-conditions": `
-    <h2>Terms & Conditions</h2>
-    <p>These are our terms and conditions. Please update accordingly.</p>
+      <div className="max-w-4xl mx-auto space-y-10 text-gray-300">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-yellow-300 text-xl font-semibold mb-2">
+            1. Acceptance of Terms
+          </h2>
+          <p>
+            By accessing or using the Kothari Gems website, you agree to be
+            bound by these Terms & Conditions and all applicable laws.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-yellow-300 text-xl font-semibold mb-2">
+            2. Use of Data
+          </h2>
+          <p>
+            All content on this platform including product information,
+            categories, and policies is dynamic and fetched from our backend
+            database (Firestore). Unauthorized access or scraping is prohibited.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-yellow-300 text-xl font-semibold mb-2">
+            3. Orders & Payments
+          </h2>
+          <p>
+            Prices are dynamic and subject to change without notice. Orders made
+            via WhatsApp or form will be confirmed separately before processing.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-yellow-300 text-xl font-semibold mb-2">
+            4. Intellectual Property
+          </h2>
+          <p>
+            All trademarks, content, and images are the property of Kothari Gems
+            and cannot be reused without explicit permission.
+          </p>
+        </motion.div>
+      </div>
   `,
 };
 

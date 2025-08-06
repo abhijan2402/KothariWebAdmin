@@ -108,6 +108,8 @@ export default function ProductList() {
     setEditModalVisible(true);
   };
 
+  console.log(products)
+
   /* ───────────────────────────  columns  ───────────────────────────── */
   const columns = [
     {
@@ -141,6 +143,20 @@ export default function ProductList() {
       dataIndex: "description",
       ellipsis: true,
       width: 280,
+    },
+    {
+      title: "Category",
+      dataIndex: "categoryName",
+      ellipsis: true,
+      width: 280,
+      render: (value) => <div>{value || "--"}</div>,
+    },
+    {
+      title: "Sub-Category",
+      dataIndex: "subcategoryName",
+      ellipsis: true,
+      width: 280,
+      render: (value) => <div>{value || "--"}</div>,
     },
     {
       title: "Actions",
