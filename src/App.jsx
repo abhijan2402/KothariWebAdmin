@@ -20,7 +20,7 @@ export default function App() {
         <Route
           path="/"
           element={
-              <Layout />
+            <Layout />
             // <ProtectedRoute>
             // </ProtectedRoute>
           }
