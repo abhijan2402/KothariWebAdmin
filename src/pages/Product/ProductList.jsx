@@ -160,6 +160,7 @@ export default function ProductList() {
     },
     {
       title: "Actions",
+      width:150,
       render: (_, rec) => (
         <Space>
           <Button

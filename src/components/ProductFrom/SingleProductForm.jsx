@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { Input, Button, message, Select, Spin } from "antd";
+import { Input, Button, message, Select, Spin, Switch } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import { toast } from "react-toastify";
 import { db, storage } from "../../firebase";
@@ -132,6 +132,7 @@ export default function SingleProductForm() {
         categoryName: categoryName,
         subcategoryId: vals.subcategoryId,
         subcategoryName: subcategoryName,
+        isFeatured: vals.isFeatured,
         created_at: Date.now(),
       });
 
@@ -157,6 +158,7 @@ export default function SingleProductForm() {
         images: [],
         categoryId: null,
         subcategoryId: null,
+        isFeatured: false,
       }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
@@ -285,6 +287,17 @@ export default function SingleProductForm() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Is Featured Toggle */}
+          <div style={{ marginBottom: 16 }}>
+            <label style={{ display: "block", marginBottom: 4 }}>
+              Featured Product (optional)
+            </label>
+            <Switch
+              checked={values.isFeatured}
+              onChange={(checked) => setFieldValue("isFeatured", checked)}
+            />
           </div>
 
           {/* Submit */}
