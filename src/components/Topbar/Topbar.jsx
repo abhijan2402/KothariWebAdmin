@@ -14,14 +14,14 @@ export default function Topbar({ collapsed }) {
       <h2 className="logo">Admin Panel</h2>
 
       <div className="topbar-controls">
-        <div className="theme-toggle">
+        {/* <div className="theme-toggle">
           <Switch
             checked={darkMode}
             onChange={(checked) => setDarkMode(checked)}
             checkedChildren={<MoonOutlined />}
             unCheckedChildren={<SunOutlined />}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

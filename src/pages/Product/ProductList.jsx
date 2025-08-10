@@ -12,6 +12,7 @@ import {
   Col,
   Input,
   message,
+  Switch,
 } from "antd";
 import {
   EditOutlined,
@@ -33,6 +34,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import EditProductModal from "../../components/ProductFrom/EditProductModal";
+import { toast } from "react-toastify";
 
 export default function ProductList() {
   /* ─────────────────────────────  state  ───────────────────────────── */
@@ -84,22 +86,26 @@ export default function ProductList() {
     setIsModalVisible(true);
   };
 
-  // const handleStatusToggle = async (prod) => {
-  //   const next = prod.status === "active" ? "block" : "active";
-  //   try {
-  //     await updateDoc(doc(db, "products", prod.id), { status: next });
-  //     message.success("Status updated");
-  //   } catch {
-  //     message.error("Failed to update status");
-  //   }
-  // };
+  const handleFeatureToggle = async (record) => {
+    try {
+      const productRef = doc(db, "products", record.id);
+      await updateDoc(productRef, { isFeatured: !record.isFeatured });
+
+      toast.success(
+        `Product marked as ${!record.isFeatured ? "Featured" : "Not Featured"}`
+      );
+    } catch (error) {
+      console.error("Error updating isFeatured:", error);
+      toast.error("Failed to update featured status");
+    }
+  };
 
   const handleDelete = async (id) => {
     try {
       await deleteDoc(doc(db, "products", id));
-      message.success("Deleted");
+      toast.success("Deleted");
     } catch {
-      message.error("Delete failed");
+      toast.error("Delete failed");
     }
   };
 
@@ -108,7 +114,7 @@ export default function ProductList() {
     setEditModalVisible(true);
   };
 
-  console.log(products)
+  console.log(products);
 
   /* ───────────────────────────  columns  ───────────────────────────── */
   const columns = [
@@ -151,6 +157,7 @@ export default function ProductList() {
       width: 280,
       render: (value) => <div>{value || "--"}</div>,
     },
+
     {
       title: "Sub-Category",
       dataIndex: "subcategoryName",
@@ -158,9 +165,25 @@ export default function ProductList() {
       width: 280,
       render: (value) => <div>{value || "--"}</div>,
     },
+    // ✅ New Featured Switch Column
+    {
+      title: "Featured",
+      dataIndex: "isFeatured",
+      key: "isFeatured",
+      width: 140,
+      render: (isFeatured, record) => (
+        <Switch
+          checked={isFeatured}
+          onChange={() => handleFeatureToggle(record)}
+          checkedChildren="Active"
+          unCheckedChildren="Inactive"
+        />
+      ),
+    },
+    // ✅ Actions Column
     {
       title: "Actions",
-      width:150,
+      width: 200,
       render: (_, rec) => (
         <Space>
           <Button
@@ -168,21 +191,7 @@ export default function ProductList() {
             onClick={() => handleEdit(rec)}
             type="primary"
           />
-          {/* <Button
-            icon={
-              rec.status === "active" ? (
-                <StopOutlined />
-              ) : (
-                <CheckCircleOutlined />
-              )
-            }
-            style={{
-              background: rec.status === "active" ? "#ff4d4f" : "#2dba4e",
-              borderColor: rec.status === "active" ? "#ff4d4f" : "#2dba4e",
-              color: "#fff",
-            }}
-            onClick={() => handleStatusToggle(rec)}
-          /> */}
+
           <Popconfirm
             title="Delete this product?"
             onConfirm={() => handleDelete(rec.id)}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Input, Button, Form as AntForm } from "antd";
+import { Modal, Input, Button, Form as AntForm, Switch } from "antd";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
@@ -70,6 +70,7 @@ const EditProductModal = ({
             origin: editRecord?.origin || "",
             price: editRecord?.price || "",
             images: [],
+            isFeatured: editRecord?.isFeatured ?? false,
           }}
           validationSchema={Yup.object({
             title: Yup.string().required("Title is required"),
@@ -107,6 +108,15 @@ const EditProductModal = ({
                 {touched.price && errors.price && (
                   <div style={{ color: "red" }}>{errors.price}</div>
                 )}
+              </AntForm.Item>
+
+              <AntForm.Item label="Featured">
+                <Switch
+                  checked={values.isFeatured}
+                  onChange={(checked) => setFieldValue("isFeatured", checked)}
+                  checkedChildren="Active"
+                  unCheckedChildren="Inactive"
+                />
               </AntForm.Item>
 
               <AntForm.Item label="Upload Images (Max: 5)">
